@@ -1,0 +1,84 @@
+
+# coding: utf-8
+
+# In[ ]:
+
+class RectangularRoom(object):
+    """
+    The room has rectangular shape 
+    
+    """
+    def __init__(self, width, length):
+        """
+        Now the room is initilized to width and length
+        And initially the room has no a single tile clean
+        Both width and length have integer values 
+        """
+        
+        self.width = width
+        self.height = length
+        self.cleaned_tiles = []
+    
+    def cleanTileAtPosition(self, pos):
+        """
+        Here pos represent position in the tile
+        And it is a clean pos tile
+        """
+        
+        single_point = (int(pos.getX()), int(pos.getY()))
+        if single_point not in self.cleaned_tiles:
+            self.cleaned_tiles.append(single_point)
+
+    def isTileCleaned(self, p, q):
+        """
+        if the tile with a values (p, q) cleaned, then it returns True 
+        otherwise False.
+        
+        """
+        
+        self.p = p
+        self.q = q
+        tile = (self.p, self.q)
+        if tile in self.cleaned_tiles:
+            return True
+        else:
+            return False
+    
+    def getNumTiles(self):
+        """
+        returns the number of tiles in the rectangular room.
+        """
+        
+        
+    
+        return self.width * self.length
+
+    def getNumCleanedTiles(self):
+        """
+        this one returns the number of clean tiles in the room
+        """
+        
+        return len(self.cleaned_tiles)
+
+    def getRandomPosition(self):
+        """
+        returns the random postion in the tile within the room
+        """
+        
+        rand_posx = random.uniform(0, self.width)
+        rand_posy = random.uniform(0, self.length)
+        return Position(rand_posx, rand_posy)
+        
+
+    def isPositionInRoom(self, pos):
+        """
+        A boolean that returns True if the pos is in the room
+        otherwise False
+        """
+      
+        if pos.x >= 0 and pos.x < self.width and pos.y >= 0 and pos.y < self.length:
+            return True
+        else:
+            return False
+        
+
