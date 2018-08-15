@@ -16,7 +16,7 @@ class RectangularRoom(object):
         """
         
         self.width = width
-        self.height = length
+        self.length = length
         self.cleaned_tiles = []
     
     def cleanTileAtPosition(self, pos):
